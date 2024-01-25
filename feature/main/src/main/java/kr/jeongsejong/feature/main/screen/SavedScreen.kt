@@ -26,7 +26,8 @@ fun SavedRoute(
     val savedDocumentList = viewModel.savedDocumentList.collectAsStateWithLifecycle()
     
     SavedScreen(
-        list = savedDocumentList.value,
+        documentDataList = savedDocumentList.value,
+        emptyText = "저장된 데이터가 없습니다.",
         onClickSave = {
             viewModel.removeSavedItem(it)
         }
@@ -35,10 +36,11 @@ fun SavedRoute(
 
 @Composable
 fun SavedScreen(
-    list: List<DocumentData>,
+    documentDataList: List<DocumentData>,
+    emptyText: String,
     onClickSave: (DocumentData) -> Unit
 ) {
-    if(list.isNotEmpty()) {
+    if(documentDataList.isNotEmpty()) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -48,7 +50,7 @@ fun SavedScreen(
                 columns = SimpleGridCells.Fixed(3),
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                list.forEach {
+                documentDataList.forEach {
                     ImageItemView(
                         imageUrl = it.thumbnailUrl,
                         isSaved = it.isSaved,
@@ -62,7 +64,7 @@ fun SavedScreen(
             }
         }
     } else {
-        SimpleEmpty(message = "저장된 데이터가 없습니다.")
+        SimpleEmpty(message = emptyText)
     }
 }
 
@@ -85,7 +87,8 @@ private fun PreviewSavedScreen(
     @PreviewParameter(PreviewDataProvider::class) items: List<DocumentData>
 ) {
     SavedScreen(
-        list = items,
+        documentDataList = items,
+        emptyText = "저장된 데이터가 없습니다.",
         onClickSave = { },
     )
 }
@@ -94,7 +97,8 @@ private fun PreviewSavedScreen(
 @Composable
 fun PreviewEmpty() {
     SavedScreen(
-        list = emptyList(),
+        documentDataList = emptyList(),
+        emptyText = "저장된 데이터가 없습니다.",
         onClickSave = { },
     )
 }
