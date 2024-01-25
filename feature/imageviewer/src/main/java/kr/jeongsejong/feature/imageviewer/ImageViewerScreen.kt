@@ -1,6 +1,7 @@
 package kr.jeongsejong.feature.imageviewer
 
 import android.app.Activity
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -32,10 +33,16 @@ fun ImageViewerRoute(
 ) {
     val activity = (LocalContext.current as? Activity)
     val documentItem = viewModel.documentItemFlow.collectAsStateWithLifecycle()
+    val savedIcon = if(documentItem.value.isSaved) {
+        R.drawable.ic_star_on
+    } else {
+        R.drawable.ic_star_off
+    }
 
     ImageViewerScreen(
-        isSaved = documentItem.value.isSaved,
+        title = "이미지 상세",
         imageUrl = documentItem.value.imageUrl,
+        savedIcon = savedIcon,
         navigationUpAction = { activity?.finish() },
         onClickBlock = {
             viewModel.blockItem(documentItem.value)
@@ -43,13 +50,13 @@ fun ImageViewerRoute(
         },
         onClickSave = { viewModel.toggleSaved(documentItem.value) }
     )
-
 }
 
 @Composable
 fun ImageViewerScreen(
-    isSaved: Boolean,
+    title: String,
     imageUrl: String,
+    @DrawableRes savedIcon: Int,
     navigationUpAction: () -> Unit,
     onClickBlock: () -> Unit,
     onClickSave: () -> Unit,
@@ -57,7 +64,7 @@ fun ImageViewerScreen(
     Scaffold(
         topBar = {
             SimpleTopBar(
-                title = "이미지 상세",
+                title = title,
                 navigationUpAction = { navigationUpAction.invoke() }
             )
         },
@@ -68,12 +75,6 @@ fun ImageViewerScreen(
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
         ) {
-            val savedIcon = if(isSaved) {
-                R.drawable.ic_star_on
-            } else {
-                R.drawable.ic_star_off
-            }
-
             AsyncImage(
                 modifier = Modifier
                     .fillMaxSize()
@@ -112,8 +113,9 @@ fun ImageViewerScreen(
 @Preview(showBackground = true)
 fun PreviewImageViewerScreen() {
     ImageViewerScreen(
+        title = "이미지 상세",
         imageUrl = "",
-        isSaved = false,
+        savedIcon = R.drawable.ic_star_off,
         navigationUpAction = { },
         onClickBlock = { },
         onClickSave = { }
