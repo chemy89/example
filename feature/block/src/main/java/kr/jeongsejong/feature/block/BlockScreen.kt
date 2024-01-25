@@ -31,7 +31,9 @@ fun BlockRoute(
     val savedDocumentList = viewModel.blockedDocumentList.collectAsStateWithLifecycle()
 
     BlockScreen(
-        list = savedDocumentList.value,
+        title = "차단 목록",
+        emptyMessage = "차단한 데이터가 없습니다.",
+        documentDataList = savedDocumentList.value,
         navigationUpAction = { activity?.finish() },
         onClickBlock = { viewModel.removeBlockedItem(it) }
     )
@@ -40,19 +42,21 @@ fun BlockRoute(
 
 @Composable
 fun BlockScreen(
-    list: List<DocumentData>,
+    title: String,
+    emptyMessage: String,
+    documentDataList: List<DocumentData>,
     navigationUpAction: () -> Unit,
     onClickBlock: (DocumentData) -> Unit
 ) {
     Scaffold(
         topBar = {
             SimpleTopBar(
-                title = "차단 목록",
+                title = title,
                 navigationUpAction = { navigationUpAction.invoke() }
             )
         },
     ) { innerPadding ->
-        if(list.isNotEmpty()) {
+        if(documentDataList.isNotEmpty()) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -63,7 +67,7 @@ fun BlockScreen(
                     columns = SimpleGridCells.Fixed(3),
                     modifier = Modifier.fillMaxWidth(),
                 ) {
-                    list.forEach {
+                    documentDataList.forEach {
                         ImageItemView(
                             imageUrl = it.thumbnailUrl,
                             isSaved = it.isSaved,
@@ -79,7 +83,7 @@ fun BlockScreen(
         } else {
             SimpleEmpty(
                 modifier = Modifier.padding(innerPadding),
-                message = "차단한 데이터가 없습니다."
+                message = emptyMessage
             )
         }
     }
@@ -102,8 +106,10 @@ private class PreviewDataProvider : PreviewParameterProvider<List<DocumentData>>
 @Composable
 fun PreviewEmpty() {
     BlockScreen(
-        list = emptyList(),
-        navigationUpAction = {},
+        title = "차단 목록",
+        emptyMessage = "차단한 데이터가 없습니다.",
+        documentDataList = emptyList(),
+        navigationUpAction = { },
         onClickBlock = { },
     )
 }
@@ -114,7 +120,9 @@ fun PreviewBlockScreen(
     @PreviewParameter(PreviewDataProvider::class) items: List<DocumentData>
 ) {
     BlockScreen(
-        list = items,
+        title = "차단 목록",
+        emptyMessage = "차단한 데이터가 없습니다.",
+        documentDataList = items,
         navigationUpAction = { },
         onClickBlock = { },
     )
