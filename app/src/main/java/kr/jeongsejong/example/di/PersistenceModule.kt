@@ -7,6 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kr.jeongsejong.core.persistence.sharedpreferences.EncryptedSharedPreferencesPersistence
+import kr.jeongsejong.core.persistence.sharedpreferences.SharedPreferencesPersistence
 import kr.jeongsejong.core.persistence.spec.*
 import javax.inject.Singleton
 
@@ -19,6 +20,13 @@ object PersistenceModule {
     @EncryptedSupplement
     fun provideEncryptedSupplementPersistence(@ApplicationContext context: Context): Persistence {
         return EncryptedSharedPreferencesPersistence(context, "supplement")
+    }
+
+    @Provides
+    @Singleton
+    @PlainDefault
+    fun providePlainDefaultPersistence(@ApplicationContext context: Context): Persistence {
+        return SharedPreferencesPersistence(context, "plain")
     }
 
 }
