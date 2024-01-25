@@ -1,4 +1,4 @@
-package kr.jeongsejong.core.ui.compose
+package kr.jeongsejong.core.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.BottomNavigation
@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import kr.jeongsejong.core.ui.BottomNavItem
+import kr.jeongsejong.core.data.vo.BottomNavItem
 
 @Composable
 fun BottomNavigationBar(

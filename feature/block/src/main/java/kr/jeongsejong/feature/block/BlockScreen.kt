@@ -21,7 +21,7 @@ import io.woong.compose.grid.VerticalGrid
 import kr.jeongsejong.core.data.vo.DocumentData
 import kr.jeongsejong.core.designsystem.SimpleEmpty
 import kr.jeongsejong.core.designsystem.SimpleTopBar
-import kr.jeongsejong.core.ui.compose.ImageItemView
+import kr.jeongsejong.core.ui.ImageItemView
 
 @Composable
 fun BlockRoute(

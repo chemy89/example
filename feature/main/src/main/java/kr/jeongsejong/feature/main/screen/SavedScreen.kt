@@ -16,7 +16,7 @@ import io.woong.compose.grid.SimpleGridCells
 import io.woong.compose.grid.VerticalGrid
 import kr.jeongsejong.core.data.vo.DocumentData
 import kr.jeongsejong.core.designsystem.SimpleEmpty
-import kr.jeongsejong.core.ui.compose.ImageItemView
+import kr.jeongsejong.core.ui.ImageItemView
 import kr.jeongsejong.feature.main.viewmodel.SavedViewModel
 
 @Composable

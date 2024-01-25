@@ -34,7 +34,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import kotlinx.coroutines.flow.flowOf
 import kr.jeongsejong.core.data.vo.DocumentData
 import kr.jeongsejong.core.designsystem.SimpleDialog
-import kr.jeongsejong.core.ui.compose.ImageItemView
+import kr.jeongsejong.core.ui.ImageItemView
 import kr.jeongsejong.feature.imageviewer.ImageViewerActivity
 import kr.jeongsejong.feature.main.viewmodel.SearchViewModel
 

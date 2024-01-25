@@ -1,4 +1,4 @@
-package kr.jeongsejong.core.ui.compose
+package kr.jeongsejong.core.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

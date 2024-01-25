@@ -18,8 +18,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import kr.jeongsejong.core.common.ktx.navigationSingleTopTo
 import kr.jeongsejong.core.designsystem.SimpleDialog
-import kr.jeongsejong.core.ui.BottomNavItem
-import kr.jeongsejong.core.ui.compose.BottomNavigationBar
+import kr.jeongsejong.core.data.vo.BottomNavItem
+import kr.jeongsejong.core.ui.BottomNavigationBar
 import kr.jeongsejong.feature.main.viewmodel.MainViewModel
 
 @Composable

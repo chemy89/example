@@ -1,4 +1,4 @@
-package kr.jeongsejong.core.ui
+package kr.jeongsejong.core.data.vo
 
 data class BottomNavItem (
     val name: String,
