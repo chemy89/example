@@ -1,11 +1,9 @@
 package kr.jeongsejong.feature.gate
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -35,7 +33,7 @@ fun GateRoute(
     }
 
     GateScreen(
-        socialText = "카카오 로그인",
+        socialLoginText = "카카오 로그인",
         skipText = "살펴보기",
         onClickSocial = {
             viewModel.requestKakaoLogin(activity)
@@ -48,7 +46,7 @@ fun GateRoute(
 
 @Composable
 fun GateScreen(
-    socialText: String,
+    socialLoginText: String,
     skipText: String,
     onClickSocial: () -> Unit,
     onClickSkip: () -> Unit,
@@ -63,7 +61,7 @@ fun GateScreen(
             modifier = Modifier.fillMaxWidth(),
             onClick = onClickSocial
         ) {
-            Text(text = socialText)
+            Text(text = socialLoginText)
         }
 
         Button(
@@ -85,7 +83,7 @@ private fun launchMainActivity(activity: Activity) {
 @Composable
 fun PreviewGateScreen() {
     GateScreen(
-        socialText = "카카오 로그인",
+        socialLoginText = "카카오 로그인",
         skipText = "살펴보기",
         onClickSocial = { },
         onClickSkip = { }
