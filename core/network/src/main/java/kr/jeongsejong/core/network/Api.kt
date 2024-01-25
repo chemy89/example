@@ -12,8 +12,8 @@ interface Api {
     @GET("search/image")
     suspend fun searchImage(
         @Query("query") keyword: String,
-        @Query("page") page: Int? = 1,
-        @Query("size") size: Int? = 10
+        @Query("page") page: Int,
+        @Query("size") size: Int
     ): Response
 
 }
