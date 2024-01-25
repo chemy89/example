@@ -1,11 +1,7 @@
 package kr.jeongsejong.core.network.model
 
 import com.google.gson.annotations.SerializedName
-import java.time.OffsetDateTime
 
-/**
- * Created by jeongsejong on 2024/01/23
- */
 data class Documents(
     @SerializedName("collection")
     val collection: String,

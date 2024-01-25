@@ -5,9 +5,6 @@ import dagger.hilt.android.HiltAndroidApp
 import kr.jeongsejong.core.social.kakao.KakaoSdkDelegate
 import javax.inject.Inject
 
-/**
- * Created by jeongsejong on 2024/01/23
- */
 @HiltAndroidApp
 class App : Application() {
 
