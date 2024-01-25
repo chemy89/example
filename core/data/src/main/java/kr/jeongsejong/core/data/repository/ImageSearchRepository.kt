@@ -32,7 +32,7 @@ class ImageSearchRepositoryImpl @Inject constructor(
 
     @Suppress("UNCHECKED_CAST")
     override fun searchImage(keyword: String): Flow<PagingData<DocumentData>> = Pager(
-        config = PagingConfig(pageSize = 20),
+        config = PagingConfig(NetworkSearchImagePagingDataSource.pageSize),
         pagingSourceFactory = {
             networkSearchImagePagingDataSource.create(keyword) {
                 it.toDocumentData(savedThumbnailList.contains(it.thumbnail_url))

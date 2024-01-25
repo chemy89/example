@@ -19,7 +19,7 @@ class NetworkSearchImagePagingDataSource<T : Any> @AssistedInject constructor(
         val page = params.key ?: 1
 
         return try {
-            val result = api.searchImage(keyword, page, params.loadSize)
+            val result = api.searchImage(keyword, page, pageSize)
             val isReachedEnd = result.meta?.is_end ?: true
             val items = result.documents ?: emptyList()
 
@@ -44,6 +44,10 @@ class NetworkSearchImagePagingDataSource<T : Any> @AssistedInject constructor(
     @AssistedFactory
     interface Factory {
         fun create(keyword: String, mapper: (Documents) -> Any): NetworkSearchImagePagingDataSource<Any>
+    }
+
+    companion object {
+        const val pageSize = 20
     }
 
 }
