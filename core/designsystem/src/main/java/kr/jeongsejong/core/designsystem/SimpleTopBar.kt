@@ -8,6 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -17,7 +18,10 @@ fun SimpleTopBar(
 ) {
     CenterAlignedTopAppBar(
         title = {
-            Text(text = title)
+            Text(
+                text = title,
+                fontSize = 20.sp
+            )
         },
         navigationIcon = {
             IconButton(
