@@ -65,14 +65,17 @@ fun PreviewBottomNavigationBar() {
             BottomNavItem(
                 name = "search",
                 route = "search",
+                needLogin = false
             ),
             BottomNavItem(
                 name = "saved",
                 route = "saved",
+                needLogin = true
             ),
             BottomNavItem(
                 name = "mypage",
                 route = "mypage",
+                needLogin = true
             )
         ),
         navController = navController,

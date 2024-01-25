@@ -31,7 +31,7 @@ fun MainRoute(
 
     MainScreen(
         isLoggedIn = isLoggedIn.value,
-        onPositiveClick = {
+        onClickSocialLogin = {
             viewModel.requestKakaoLogin(context)
         }
     )
@@ -40,7 +40,7 @@ fun MainRoute(
 @Composable
 fun MainScreen(
     isLoggedIn: Boolean,
-    onPositiveClick: () -> Unit
+    onClickSocialLogin: () -> Unit
 ) {
     var isShowDialog by remember { mutableStateOf(false) }
     val navController = rememberNavController()
@@ -51,7 +51,7 @@ fun MainScreen(
             positiveButtonText = "카카오 로그인",
             onPositiveClick = {
                 isShowDialog = false
-                onPositiveClick.invoke()
+                onClickSocialLogin.invoke()
             },
             negativeButtonText = "취소",
             onNegativeClick = {
@@ -67,27 +67,25 @@ fun MainScreen(
                     BottomNavItem(
                         name = "검색",
                         route = "search",
+                        needLogin = false
                     ),
                     BottomNavItem(
                         name = "저장",
                         route = "saved",
+                        needLogin = true
                     ),
                     BottomNavItem(
                         name = "마이페이지",
                         route = "mypage",
+                        needLogin = true
                     )
                 ),
                 navController = navController,
                 onItemClick = {
-                    when (it.route) {
-                        "saved", "mypage" -> {
-                            if(!isLoggedIn) {
-                                isShowDialog = true
-                            } else {
-                                navController.navigationSingleTopTo(it.route)
-                            }
-                        }
-                        else -> navController.navigationSingleTopTo(it.route)
+                    if(!isLoggedIn && it.needLogin) {
+                        isShowDialog = true
+                    } else {
+                        navController.navigationSingleTopTo(it.route)
                     }
                 })
         }
@@ -138,6 +136,6 @@ fun Navigation(
 fun PreviewMainScreen() {
     MainScreen(
         isLoggedIn = false,
-        onPositiveClick = { }
+        onClickSocialLogin = { }
     )
 }
