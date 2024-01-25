@@ -52,6 +52,7 @@ fun SearchRoute(
         documentList = documentList,
         isLoggedIn = isLoggedIn.value,
         searchKeyword = searchKeyword.value,
+        placeholder = "검색어를 입력해주세요.",
         onLoginButtonClick = { viewModel.requestKakaoLogin(context) },
         onTextChanged = { viewModel.setSearchKeyword(it) },
         onSearchButtonClick = { viewModel.searchImage() },
@@ -67,6 +68,7 @@ fun SearchScreen(
     documentList: LazyPagingItems<DocumentData>,
     isLoggedIn: Boolean,
     searchKeyword: String,
+    placeholder: String,
     onLoginButtonClick: () -> Unit,
     onTextChanged: (String) -> Unit,
     onSearchButtonClick: () -> Unit,
@@ -103,7 +105,7 @@ fun SearchScreen(
                     onTextChanged.invoke(newText)
                 },
                 placeholder = {
-                    Text(text = "검색어를 입력해주세요.")
+                    Text(text = placeholder)
                 },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(
@@ -187,6 +189,7 @@ fun PreviewSearchScreen(
         documentList = pagingItem,
         isLoggedIn = false,
         searchKeyword = "검색어",
+        placeholder = "검색어를 입력해주세요.",
         onLoginButtonClick = { },
         onTextChanged = { },
         onSearchButtonClick = { },
