@@ -1,4 +1,4 @@
-package kr.jeongsejong.core.local
+package kr.jeongsejong.core.local.datasource
 
 import com.google.gson.Gson
 import dagger.Module
@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kr.jeongsejong.core.common.IoDispatcher
 import kr.jeongsejong.core.json.fromJsonList
+import kr.jeongsejong.core.local.vo.LocalSupplement
 import kr.jeongsejong.core.persistence.spec.EncryptedSupplement
 import kr.jeongsejong.core.persistence.spec.Persistence
 import javax.inject.Singleton

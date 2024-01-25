@@ -10,8 +10,7 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.flow.Flow
 import kr.jeongsejong.core.data.vo.DocumentData
 import kr.jeongsejong.core.data.vo.DocumentData.Companion.toDocumentData
-import kr.jeongsejong.core.local.LocalAccountDataSource
-import kr.jeongsejong.core.local.LocalSupplementDataSource
+import kr.jeongsejong.core.local.datasource.LocalSupplementDataSource
 import kr.jeongsejong.core.network.datasource.NetworkSearchImagePagingDataSource
 import javax.inject.Inject
 import javax.inject.Singleton

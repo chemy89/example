@@ -1,4 +1,4 @@
-package kr.jeongsejong.core.local
+package kr.jeongsejong.core.local.vo
 
 data class LocalDocumentData(
     val collection: String,

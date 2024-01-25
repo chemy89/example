@@ -2,7 +2,7 @@ package kr.jeongsejong.core.data.vo
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
-import kr.jeongsejong.core.local.LocalDocumentData
+import kr.jeongsejong.core.local.vo.LocalDocumentData
 import kr.jeongsejong.core.network.model.Documents
 
 @Parcelize

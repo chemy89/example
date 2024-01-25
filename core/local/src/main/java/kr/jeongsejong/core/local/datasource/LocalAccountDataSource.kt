@@ -1,4 +1,4 @@
-package kr.jeongsejong.core.local
+package kr.jeongsejong.core.local.datasource
 
 import dagger.Module
 import dagger.Provides

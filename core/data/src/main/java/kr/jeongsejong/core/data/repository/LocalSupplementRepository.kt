@@ -21,9 +21,9 @@ import kr.jeongsejong.core.data.vo.BlockAction
 import kr.jeongsejong.core.data.vo.DocumentData
 import kr.jeongsejong.core.data.vo.DocumentData.Companion.toDocumentData
 import kr.jeongsejong.core.data.vo.SaveAction
-import kr.jeongsejong.core.local.LocalAccountDataSource
-import kr.jeongsejong.core.local.LocalSupplementDataSource
-import kr.jeongsejong.core.local.LocalDocumentData
+import kr.jeongsejong.core.local.datasource.LocalAccountDataSource
+import kr.jeongsejong.core.local.datasource.LocalSupplementDataSource
+import kr.jeongsejong.core.local.vo.LocalDocumentData
 import javax.inject.Inject
 import javax.inject.Singleton
 
