@@ -1,0 +1,36 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
+        maven { url "https://jitpack.io" }
+    }
+}
+
+rootProject.name = "example"
+
+include ':app'
+include ':core:httpclient'
+include ':core:data'
+include ':core:common'
+include ':core:json'
+include ':core:local'
+include ':core:persistence:spec'
+include ':core:persistence:sharedpreferences'
+include ':core:network'
+include ':core:social'
+include ':env'
+include ':feature:gate'
+include ':feature:main'
+include ':feature:block'
+include ':feature:imageviewer'
+include ':core:ui'
+include ':core:designsystem'

@@ -1,0 +1,5 @@
+apply from: rootProject.file("script/library.gradle")
+
+android {
+    namespace 'kr.jeongsejong.env'
+}

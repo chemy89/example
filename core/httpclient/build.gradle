@@ -1,0 +1,22 @@
+apply from: rootProject.file("script/library-hilt.gradle")
+
+android {
+    namespace 'kr.jeongsejong.core.httpclient'
+    resourcePrefix 'example_core_httpclient'
+}
+
+dependencies {
+    implementation project(":env")
+//    implementation project(":core:json")
+//    implementation project(":core:common")
+//    implementation project(":core:local")
+//    implementation project(":core:trigger")
+//    implementation project(":core:local")
+//    implementation project(":core:persistence:spec")
+//    implementation project(":devtool:flipper:spec")
+//    implementation project(":devtool:pandora:spec")
+
+    implementation(libs.okhttp)
+    implementation(libs.retrofit)
+    implementation(libs.okhttp.logging.interceptor)
+}

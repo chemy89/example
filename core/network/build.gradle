@@ -1,0 +1,15 @@
+apply from: rootProject.file("script/library-hilt.gradle")
+
+android {
+    namespace 'kr.jeongsejong.core.network'
+    resourcePrefix 'example_core_network'
+}
+
+dependencies {
+    implementation project(":env")
+    implementation project(":core:httpclient")
+    implementation project(":core:json")
+
+    implementation(libs.bundles.network)
+    implementation(libs.androidx.paging.runtime)
+}

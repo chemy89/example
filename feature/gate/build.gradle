@@ -1,0 +1,13 @@
+apply from: rootProject.file("script/library-hilt.gradle")
+apply from: rootProject.file("script/library-compose.gradle")
+
+android {
+    namespace 'kr.jeongsejong.feature.gate'
+    resourcePrefix 'gate'
+}
+
+dependencies {
+    implementation project(":core:data")
+    implementation project(":core:social")
+    implementation project(":feature:main")
+}

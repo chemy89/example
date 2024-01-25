@@ -1,0 +1,10 @@
+apply from: rootProject.file("script/library-hilt.gradle")
+
+android {
+    namespace 'kr.jeongsejong.core.common'
+    resourcePrefix 'example_core_common'
+}
+
+dependencies {
+    implementation(libs.navigation.ui.ktx)
+}

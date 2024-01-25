@@ -1,0 +1,12 @@
+apply from: rootProject.file("script/library-hilt.gradle")
+
+android {
+    namespace 'kr.jeongsejong.core.social'
+    resourcePrefix 'example_core_social'
+}
+
+dependencies {
+    implementation project(":env")
+
+    implementation(libs.kakao.user)
+}

@@ -1,0 +1,18 @@
+apply from: rootProject.file("script/library.gradle")
+apply from: rootProject.file("script/library-compose.gradle")
+
+android {
+    namespace 'kr.jeongsejong.core.designsystem'
+
+    sourceSets {
+        main {
+            res.srcDirs += ['src/main/icon']
+        }
+    }
+}
+
+dependencies {
+    implementation(project(":core:common"))
+
+    api(libs.material)
+}

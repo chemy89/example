@@ -1,0 +1,16 @@
+apply from: rootProject.file("script/library.gradle")
+apply plugin: getPluginId(libs.plugins.kotlin.kapt)
+apply plugin: getPluginId(libs.plugins.hilt.android)
+
+kapt {
+    correctErrorTypes true
+}
+
+hilt {
+    enableAggregatingTask = true
+}
+
+dependencies {
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+}

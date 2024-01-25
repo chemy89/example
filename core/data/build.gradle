@@ -1,0 +1,16 @@
+apply from: rootProject.file("script/library-hilt.gradle")
+apply plugin: 'kotlin-parcelize'
+
+android {
+    namespace 'kr.jeongsejong.core.data'
+    resourcePrefix 'example_core_data'
+}
+
+dependencies {
+    implementation project(":core:common")
+    implementation project(":core:local")
+    implementation project(":core:network")
+    implementation project(":core:social")
+
+    implementation(libs.androidx.paging.runtime)
+}

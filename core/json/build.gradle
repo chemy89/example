@@ -1,0 +1,10 @@
+apply from: rootProject.file("script/library-hilt.gradle")
+
+android {
+    namespace 'kr.jeongsejong.core.json'
+    resourcePrefix 'example_core_json'
+}
+
+dependencies {
+    implementation(libs.retrofit.converter.gson)
+}

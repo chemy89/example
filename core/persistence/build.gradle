@@ -1,0 +1,10 @@
+apply from: rootProject.file("script/library-hilt.gradle")
+
+android {
+    namespace 'kr.jeongsejong.core.persistence'
+    resourcePrefix 'example_core_persistence'
+}
+
+dependencies {
+    implementation(libs.androidx.security.crypto)
+}

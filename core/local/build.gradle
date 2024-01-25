@@ -1,0 +1,14 @@
+apply from: rootProject.file("script/library-hilt.gradle")
+
+android {
+    namespace 'kr.jeongsejong.core.local'
+    resourcePrefix 'example_core_local'
+}
+
+dependencies {
+    implementation project(":core:common")
+    implementation project(":core:json")
+    implementation project(":core:persistence")
+
+    implementation(libs.retrofit.converter.gson)
+}
