@@ -35,7 +35,7 @@ fun ImageViewerRoute(
 
     ImageViewerScreen(
         isSaved = documentItem.value.isSaved,
-        imageUrl = documentItem.value.thumbnailUrl,
+        imageUrl = documentItem.value.imageUrl,
         navigationUpAction = { activity?.finish() },
         onClickBlock = {
             viewModel.blockItem(documentItem.value)

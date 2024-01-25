@@ -14,7 +14,9 @@ import kr.jeongsejong.core.data.vo.DocumentData
 @AndroidEntryPoint
 class ImageViewerActivity : ComponentActivity() {
 
-    private val documentItem by lazy { intent.getParcelableData<DocumentData>(keyItem) ?: DocumentData.empty }
+    private val documentItem by lazy {
+        intent.getParcelableData<DocumentData>(keyItem) ?: DocumentData.empty
+    }
 
     private val viewModel by viewModels<ImageViewerViewModel>(extrasProducer = {
         defaultViewModelCreationExtras.withCreationCallback<ImageViewerViewModel.ViewModelFactory> {
