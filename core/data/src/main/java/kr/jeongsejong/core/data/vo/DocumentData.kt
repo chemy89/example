@@ -45,21 +45,5 @@ data class DocumentData(
             datetime = this.datetime,
             isSaved = this.isSaved
         )
-
-//
-//        fun List<UserData>.groupByConsonant(): Map<String, List<UserData>> {
-//            return this
-//                .sortedBy { it.name.lowercase() } // 정렬
-//                .groupBy { it.name.lowercase()[0].toString() } // 초성으로 그룹화
-//        }
-//
-//        fun Map<String, List<UserData>>.toUserItemList(): List<UserItem> {
-//            return buildList {
-//                this@toUserItemList.forEach { (key, value) ->
-//                    add(UserItem.Header(key))
-//                    addAll(value.map { userData -> UserItem.Contents(userData) })
-//                }
-//            }
-//        }
     }
 }
