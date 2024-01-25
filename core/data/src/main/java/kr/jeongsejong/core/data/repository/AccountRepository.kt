@@ -14,7 +14,7 @@ import javax.inject.Singleton
 
 interface AccountRepository {
     val isLoggedInFlow: StateFlow<Boolean>
-    var accessToken: String
+    var oAuthToken: String
 
     fun clearAccountInfo()
 }
@@ -22,18 +22,18 @@ interface AccountRepository {
 class AccountRepositoryImpl @Inject constructor(
     private val localAccountDataSource: LocalAccountDataSource,
 ) : AccountRepository {
-    private val _isLoggedInFlow = MutableStateFlow(localAccountDataSource.isLogin)
+    private val _isLoggedInFlow = MutableStateFlow(localAccountDataSource.isLoggedIn)
     override val isLoggedInFlow = _isLoggedInFlow.asStateFlow()
 
-    override var accessToken: String
-        get() = localAccountDataSource.accessToken
+    override var oAuthToken: String
+        get() = localAccountDataSource.oAuthToken
         set(value) {
-            localAccountDataSource.accessToken = value
+            localAccountDataSource.oAuthToken = value
             _isLoggedInFlow.update { value.isNotBlank() }
         }
 
     override fun clearAccountInfo() {
-        localAccountDataSource.clear()
+        localAccountDataSource.clearAccessToken()
     }
 
 }

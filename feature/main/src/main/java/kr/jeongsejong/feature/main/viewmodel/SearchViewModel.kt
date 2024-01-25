@@ -130,7 +130,7 @@ class SearchViewModel @Inject constructor(
         runCatching {
             requireNotNull(kakaoSdkDelegate.login(context))
         }.mapCatching { kakaoAccessToken ->
-            accountRepository.accessToken = kakaoAccessToken
+            accountRepository.oAuthToken = kakaoAccessToken
         }
     }
 

@@ -4,7 +4,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.flow.MutableStateFlow
 import kr.jeongsejong.core.persistence.spec.EncryptedSupplement
 import kr.jeongsejong.core.persistence.spec.Persistence
 import javax.inject.Singleton
@@ -13,17 +12,17 @@ class LocalAccountDataSource internal constructor(
     private val persistence: Persistence
 ) {
 
-    val isLogin: Boolean
-        get() = accessToken.isNotBlank()
+    val isLoggedIn: Boolean
+        get() = oAuthToken.isNotBlank()
 
-    var accessToken: String
+    var oAuthToken: String
         get() = persistence.getString("oauth_token", "").orEmpty()
         set(value) {
             persistence.put("oauth_token", value)
         }
 
-    fun clear() {
-        persistence.clear()
+    fun clearAccessToken() {
+        persistence.put("oauth_token", "")
     }
 
 }

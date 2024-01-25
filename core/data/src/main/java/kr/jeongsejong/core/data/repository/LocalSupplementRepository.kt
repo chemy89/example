@@ -70,7 +70,7 @@ class LocalSupplementRepositoryImpl @Inject constructor(
     override val blockActionFlow = _blockActionFlow.asSharedFlow()
 
     private val oAuthToken: String
-        get() = localAccountDataSource.accessToken
+        get() = localAccountDataSource.oAuthToken
 
     init {
         launch {

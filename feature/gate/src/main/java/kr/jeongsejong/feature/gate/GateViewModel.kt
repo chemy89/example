@@ -29,7 +29,7 @@ class GateViewModel @Inject constructor(
             requireNotNull(kakaoSdkDelegate.login(context))
         }.mapCatching { kakaoAccessToken ->
             if(kakaoAccessToken.isNotBlank()) {
-                accountRepository.accessToken = kakaoAccessToken
+                accountRepository.oAuthToken = kakaoAccessToken
                 LoginState.SUCCESS
             } else {
                 LoginState.USER_CANCELED
