@@ -16,7 +16,7 @@
 - env : 환경 변수들을 관리합니다.
 - feature:block : 차단 목록 화면을 구성하고 있는 Feature Module 입니다.
 - feature:gate : “OAuth 로그인” 버튼과 “앱 살펴보기” 버튼이 포함된 랜딩 화면을 구성하고 있는 Feature Module 입니다.
-- feature:imageviewer : 이미지 상세 화면을 구성하고 있는 Feature Module 입니다.
+- feature:imageviewer : 이미지 상세 화면을 구성하고 있는 Feature Module 입니다.
 - feature:main : 메인 화면(검색/저장/마이페이지)을 구성하고 있는 Feature Module 입니다.
 
 [ Flow ]
