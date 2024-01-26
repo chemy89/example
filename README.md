@@ -2,7 +2,7 @@
 구조와 계층을 분리하여 각 Layer 별 역할을 명확하게 하기 위해 Proejct 를 Clean Architecture Based Multi Module 로 구성하였고, 각 UI 는 feature module 로 관리합니다.
 
 [ 주요 사용 기술 ]
-- Kotlin, Hilt, Coroutine, Flow, Compose, Paging, Navigation, Retrofit, Okhttp, SharedPreferences
+- Kotlin, Hilt, Coroutine, Flow, Compose, Paging, Navigation, Retrofit, Okhttp, Gson, SharedPreferences, Kakao SDK
 
 [ 모듈 목록 ]
 - app : Application 의 전반적인 구성을 담당합니다.
