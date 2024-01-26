@@ -35,8 +35,8 @@
 - dialog 의 "카카오 로그인" 버튼 클릭 시 KakaoSdkDelegate 를 통해 로그인을 시도합니다.
 - SearchScreen 의 경우, TextField 에 입력된 값으로 카카오 이미지 검색 API 를 호출하고, 응답 목록 값 을 LazyVerticalGrid 를 사용하여 UI 를 구성하였고, Jetpack Paging 을 사용하여 무한 스크롤 기능을 구현하였습니다.
 - SavedScreen 의 경우, LocalSupplementRepository 의 savedDocumentList 를 수집하여 Grid 형태의 UI 를 구성합니다.
-- MyPageScreen 의 "차단 리스트" 버튼 클릭 시 Block 화면으로 이동합니다.
-- MyPageScreen 의 "로그아웃" 버튼 클릭 시 내부 적재되어 있는 oAuthToken 를 제거하고, 앱을 재실행합니다.
+- MyPageScreen 의 "차단 리스트" 버튼 클릭 시 Block 화면으로 이동합니다.
+- MyPageScreen 의 "로그아웃" 버튼 클릭 시 내부 적재되어 있는 oAuthToken 를 제거하고, 앱을 재실행합니다.
 - 저장하기 및 차단 아이콘 클릭 시 LocalSupplementRepository 를 통해 SaveAction 및 BlockAction 를 방출하고, saveActionFlow 및 blockActionFlow 를 수집하고 있는 화면에서 데이터를 처리합니다.
 - ImageViewer 화면 이동 시 newIntent 를 통해 Parcelable 처리된 DocumentData 를 매개 변수로 담아 이동합니다.
 - ImageViewer 화면 진입 시 intent 를 통해 전달받은 DocumentData 를 ViewModelFactory 를 사용하여 ViewModel 에 전달합니다.
