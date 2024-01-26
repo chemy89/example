@@ -1,6 +1,7 @@
 ## Project 구성
 구조와 계층을 분리하여 각 Layer 별 역할을 명확하게 하기 위해 Proejct 를 Clean Architecture Based Multi Module 로 구성하였고, 각 UI 는 feature module 로 관리합니다.
 
+
 [ Module List ]
 - app : Application 의 전반적인 구성을 담당합니다.
 - core:common : 공통으로 사용할 Dispatchers 및 Extension Function 을 관리합니다.
@@ -19,8 +20,10 @@
 - feature:imageviewer : 이미지 상세 화면을 구성하고 있는 Feature Module 입니다.
 - feature:main : 메인 화면(검색/저장/마이페이지)을 구성하고 있는 Feature Module 입니다.
 
+
 [ Flow ]
 - app -> feature(ui layer) -> data(domain layer) -> network(network layer)
+
 
 ## 주요 기능 설명
 - SharedPreferences 를 통해 저장 및 차단한 Document Data 를 내부에 적재합니다.
@@ -42,6 +45,7 @@
 - ImageViewer 화면 진입 시 intent 를 통해 전달받은 DocumentData 를 ViewModelFactory 를 사용하여 ViewModel 에 전달합니다.
 - ImageViewerViewModel 생성 시 ViewModelFactory 를 통해 전달받은 DocumentData 로 StateFlow 를 구성합니다.
 - Block 화면 진입 시 LocalSupplementRepository 의 blockedDocumentList 를 수집하여 Grid 형태의 UI 를 구성합니다.
+
 
 ## 특이사항
 - 카카오 이미지 검색 결과중 이미지의 url 이 http 가 존재하여 http 통신을 허용 하였습니다.
