@@ -71,17 +71,9 @@ class KakaoSdkDelegateImpl @Inject constructor(
 
                 when {
                     continuation.isActive && userCanceled -> continuation.resume(KakaoLoginResult.UserCancelled)
-                    continuation.isActive && error != null -> KakaoLoginResult.LoginViaKakaoTalkFailed
-                    continuation.isActive && token != null -> continuation.resume(
-                        KakaoLoginResult.Success(
-                            token
-                        )
-                    )
-                    continuation.isActive && token == null -> continuation.resume(
-                        KakaoLoginResult.Error(
-                            RuntimeException("카카오톡에서 kakaoOAuthToken 획득 실패")
-                        )
-                    )
+                    continuation.isActive && error != null -> continuation.resume(KakaoLoginResult.LoginViaKakaoTalkFailed)
+                    continuation.isActive && token != null -> continuation.resume(KakaoLoginResult.Success(token))
+                    continuation.isActive && token == null -> continuation.resume(KakaoLoginResult.Error(RuntimeException("카카오톡에서 kakaoOAuthToken 획득 실패")))
                 }
             }
         }
@@ -94,21 +86,9 @@ class KakaoSdkDelegateImpl @Inject constructor(
 
                 when {
                     continuation.isActive && userCanceled -> continuation.resume(KakaoLoginResult.UserCancelled)
-                    continuation.isActive && error != null -> continuation.resume(
-                        KakaoLoginResult.Error(
-                            error
-                        )
-                    )
-                    continuation.isActive && token != null -> continuation.resume(
-                        KakaoLoginResult.Success(
-                            token
-                        )
-                    )
-                    continuation.isActive && token == null -> continuation.resume(
-                        KakaoLoginResult.Error(
-                            RuntimeException("카카오 계정에서 kakaoOAuthToken 획득 실패")
-                        )
-                    )
+                    continuation.isActive && error != null -> continuation.resume(KakaoLoginResult.Error(error))
+                    continuation.isActive && token != null -> continuation.resume(KakaoLoginResult.Success(token))
+                    continuation.isActive && token == null -> continuation.resume(KakaoLoginResult.Error(RuntimeException("카카오 계정에서 kakaoOAuthToken 획득 실패")))
                 }
             }
         }
