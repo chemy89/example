@@ -38,7 +38,7 @@
 - Main 화면 하단 BottomBar 아이템 클릭 시 SearchScreen/SavedScreen/MyPageScreen 으로 전환합니다.
 - Main 화면 하단 BottomBar 아이템 클릭 시 needLogin 값을 통해 로그인이 필요한 화면을 체크하고, 내부 적재 되어있는 token 값이 존재하지 않는 경우 dialog 를 노출합니다.
 - dialog 의 "카카오 로그인" 버튼 클릭 시 KakaoSdkDelegate 를 통해 로그인을 시도합니다.
-- SearchScreen 의 경우, TextField 에 입력된 값으로 카카오 이미지 검색 API 를 호출하고, 응답 목록 값 을 LazyVerticalGrid 를 사용하여 UI 를 구성하였고, Jetpack Paging 을 사용하여 무한 스크롤 기능을 구현하였습니다.
+- SearchScreen 의 경우, TextField 에 입력된 값으로 카카오 이미지 검색 API 를 호출하고, 응답 목록 값 을 LazyVerticalGrid 를 사용하여 UI 를 구성하였고, Jetpack Paging 을 사용하여 스크롤 페이징 기능을 구현하였습니다.
 - SavedScreen 의 경우, LocalSupplementRepository 의 savedDocumentList 를 수집하여 Grid 형태의 UI 를 구성합니다.
 - MyPageScreen 의 "차단 리스트" 버튼 클릭 시 Block 화면으로 이동합니다.
 - MyPageScreen 의 "로그아웃" 버튼 클릭 시 내부 적재되어 있는 oAuthToken 를 제거하고, 앱을 재실행합니다.
